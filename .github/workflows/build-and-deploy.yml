@@ -10,6 +10,10 @@ permissions:
   pages: write
   id-token: write
 
+concurrency:
+  group: "pages"
+  cancel-in-progress: true
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -29,16 +33,20 @@ jobs:
           key: m2-${{ runner.os }}-${{ hashFiles('**/pom.xml') }}
           restore-keys: m2-${{ runner.os }}-
 
-      # Compile (déclenche l’enforcer : Java 21 présent -> OK)
       - name: Build
         run: mvn -B -e -DskipTests package
 
-      # Exécute ta classe principale qui génère ./docs
       - name: Generate site
         run: mvn -B -e -Dexec.mainClass=fr.matthieuperrin.Main exec:java
 
-      - name: Sanity check
-        run: test -d docs && ls -la docs
+      - name: Ensure Pages root files
+        run: |
+          mkdir -p docs
+          echo "matthieu-perrin.fr" > docs/CNAME
+          touch docs/.nojekyll
+          [ -f docs/index.html ] || printf '<!doctype html><meta charset="utf-8"><meta http-equiv="refresh" content="0; url=Accueil_fr.html">' > docs/index.html
+          echo "== docs =="
+          ls -la docs
 
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
