@@ -10,8 +10,6 @@ public class Main {
 	public static void main(String[] args) throws IOException {
 		delete(new File("docs/"));
 		copy("static", "docs");
-		Files.createFile(Path.of("docs/.nojekyll"));
-		new File("docs/.nojekyll").createNewFile();
 		new Accueil(true).generatePage("docs/Accueil_fr.html");
 		new Accueil(false).generatePage("docs/Accueil_en.html");
 		new Recherche(true).generatePage("docs/Recherche_fr.html");

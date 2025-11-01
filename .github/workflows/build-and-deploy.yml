@@ -41,10 +41,8 @@ jobs:
 
       - name: Ensure Pages root files
         run: |
-          mkdir -p docs
           echo "matthieu-perrin.fr" > docs/CNAME
           touch docs/.nojekyll
-          [ -f docs/index.html ] || printf '<!doctype html><meta charset="utf-8"><meta http-equiv="refresh" content="0; url=Accueil_fr.html">' > docs/index.html
           echo "== docs =="
           ls -la docs
 
