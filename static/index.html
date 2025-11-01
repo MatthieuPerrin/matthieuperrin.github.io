@@ -1,0 +1,9 @@
+<!doctype html>
+<meta charset="utf-8">
+<title>Redirect…</title>
+<script>
+  const lang = (navigator.language || 'fr').toLowerCase();
+  const url = lang.startsWith('fr') ? 'Accueil_fr.html' : 'Accueil_en.html';
+  location.replace(url);
+</script>
+<p><a href="Accueil_fr.html">Français</a> — <a href="Accueil_en.html">English</a></p>

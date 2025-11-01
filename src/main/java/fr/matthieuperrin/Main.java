@@ -12,7 +12,6 @@ public class Main {
 		copy("static", "docs");
 		Files.createFile(Path.of("docs/.nojekyll"));
 		new File("docs/.nojekyll").createNewFile();
-		new Accueil(true).generatePage("docs/index.html");
 		new Accueil(true).generatePage("docs/Accueil_fr.html");
 		new Accueil(false).generatePage("docs/Accueil_en.html");
 		new Recherche(true).generatePage("docs/Recherche_fr.html");
