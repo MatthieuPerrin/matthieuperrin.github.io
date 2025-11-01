@@ -10,24 +10,18 @@ permissions:
   pages: write
   id-token: write
 
-concurrency:
-  group: "pages"
-  cancel-in-progress: true
-
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
 
-      - name: Set up Java
+      - name: Set up Java 21
         uses: actions/setup-java@v4
         with:
           distribution: temurin
-          java-version: '17'
+          java-version: '21'
 
-      # (Optionnel mais recommandé)
       - name: Cache Maven repo
         uses: actions/cache@v4
         with:
@@ -35,12 +29,15 @@ jobs:
           key: m2-${{ runner.os }}-${{ hashFiles('**/pom.xml') }}
           restore-keys: m2-${{ runner.os }}-
 
-      # 👉 Exécute ta classe principale qui génère le site dans ./docs
-      - name: Generate site
-        run: |
-          mvn -q -Dexec.mainClass=fr.matthieuperrin.Main exec:java
+      # Compile (déclenche l’enforcer : Java 21 présent -> OK)
+      - name: Build
+        run: mvn -B -e -DskipTests package
 
-      - name: Check docs exists
+      # Exécute ta classe principale qui génère ./docs
+      - name: Generate site
+        run: mvn -B -e -Dexec.mainClass=fr.matthieuperrin.Main exec:java
+
+      - name: Sanity check
         run: test -d docs && ls -la docs
 
       - name: Upload Pages artifact
@@ -55,6 +52,5 @@ jobs:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
-      - name: Deploy to GitHub Pages
-        id: deployment
+      - id: deployment
         uses: actions/deploy-pages@v4
