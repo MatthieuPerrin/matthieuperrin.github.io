@@ -45,6 +45,7 @@ failsafe-reports/
 # === Generated files (doc, coverage, etc.) ===
 site/
 docs/
+docs/*
 coverage/
 jacoco.exec
 
