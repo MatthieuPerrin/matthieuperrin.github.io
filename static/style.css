@@ -1,0 +1,310 @@
+
+body {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif ;
+    font-size: 0.9em;
+    font-weight: 300;
+    background-color: #dddddd;
+    line-height: 1.625;
+    padding: 0px;
+    margin: 0px;
+}
+
+.container {
+    display:block;
+    background-color: #fff;
+    margin: auto;
+    padding: 0px;
+    position: relative;
+    text-align: left;
+    width: 900px;
+    height: 100%;
+    min-width: 400px;
+    max-width: 90%;
+    border-left: 1px solid #959596;
+    border-right: 1px solid #959596;
+}
+
+header {
+    position:relative;
+    display:block;
+    color:#eee;
+}
+
+header img {
+    z-index:1
+    position:absolute;
+    display:block;
+    width: 100%;
+}
+
+header section {
+    background:none;
+    position:absolute;
+    font-weight: bold;
+    top: 10%;
+    left: 5%;
+    z-index:2;
+    margin:0;
+    padding:0;
+}
+
+header h1 {
+    font-size: 3.25em;
+    margin:0;
+    padding:0;
+}
+
+header h2 {
+    font-size: 1.6em;
+    margin:0;
+    padding:0;
+}
+
+
+nav {
+    display:inline-block;
+    width: 100%;
+    background-color: #000;
+}
+
+nav a.lang {
+    display:inline-block;
+    float:right;
+    padding:4px 4px 0px 4px;
+    margin-right:20px;
+    opacity : 0.9;
+}
+
+nav a.lang:hover {
+    opacity : 1;
+}
+
+nav ul {
+    display:inline-block;
+    vertical-align:middle;
+    float:left;
+    margin:0;
+    padding:0;
+}
+
+nav li {
+    display:inline-block;
+    margin:0;
+    padding:0;
+    vertical-align:middle;
+}
+
+nav .up {
+    display:none;
+}
+
+nav li a {
+    display:inline-block;
+    color:#aaa;
+    height:1.2em;
+    padding:5px 16px 7px;
+    text-align:center;
+    text-decoration:none;
+    font-size:16px;
+    font-weight: 700;
+}
+
+nav .current a {
+    background: #000 url(img/select.png) no-repeat;
+    background-size: 80% 50%;
+    background-position: bottom center;
+    color:#eee;
+    text-decoration:none;
+}
+
+nav li a:hover {
+    color:#eee;
+    text-decoration:none;
+}
+
+section {
+    background-color: #fff;
+    float: center;
+    width: 85%;
+    margin: auto;
+    margin-top: 50px;
+    margin-bottom: 80px;
+}
+
+article {
+    text-align: justify;
+    margin-bottom: 30px;
+}
+
+
+
+
+.links {
+    display:inline-block;
+    margin:0;
+    padding:0;
+    width: 100%;
+    background-color: #000;
+    text-align: right;
+}
+
+.links ul {
+    display:inline-block;
+    vertical-align:middle;
+    float:left;
+    margin:0;
+    padding:0;
+}
+
+.links li {
+    display:inline-block;
+    float:left;
+    margin:0;
+    padding:0;
+    vertical-align:middle;
+}
+
+.links li a {
+    background-color: #000;
+    color:#eee;
+    display:inline-block;
+    height:1.2em;
+    padding:5px 16px 7px;
+    text-align:center;
+    text-decoration:none;
+    white-space:nowrap;
+    font-size:15px;
+    font-weight: 700;
+    opacity : 0.8;
+}
+
+.links li a:hover {
+    opacity : 1;
+}
+
+
+.links p {
+    color:#eee;
+    font-size: 0.7em;
+    margin:0;
+    padding:12px 5px 0px 0;
+}
+
+footer {
+    display:inline-block;
+    margin:0px;
+    text-align: right;
+    width: 100%;
+}
+
+footer img {
+    display:inline-block;
+    border-top: 1px solid #959596;
+    margin: 0 0 -7px 0;
+}
+
+
+
+
+
+
+
+h3 {
+    font-size: 1.5em;
+}
+
+h4 {
+    font-size: 1.3em;
+}
+
+h5 {
+    font-size: 1em;
+}
+
+strong {
+    font-weight: bold;
+}
+
+article a {
+    color: #3b74ac;
+    text-decoration: none;
+}
+
+a:focus, a:active {
+    outline:none;
+}
+
+
+td {
+    display:align-block;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-bottom: 10px;
+    padding-top: 0px;
+    text-align: left;
+}
+
+th {
+    vertical-align: top;
+    text-align: left;
+    width: 100px;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-bottom: 10px;
+    padding-top: 0px;
+}
+
+li {
+    text-align: left;
+    padding-right: 5%;
+    padding-bottom: 1em;
+}
+
+
+
+
+
+@media only screen and (max-width: 650px) {
+
+    .container {
+	min-width: 100%;
+	max-width: 100%;
+	border-left: 0px;
+	border-right: 0px;
+    }
+
+    header {
+	font-size: 0.6em;
+    }
+
+    th {
+        width: 25%;
+    }
+
+}
+
+@media only screen and (max-width: 400px) {
+    nav li a {
+	height:1.45em;
+	font-size: 1em;
+	padding:6px 7px 4px;
+    }
+
+    nav a.lang {
+	margin-right:10px;
+    }
+
+}
+
+@media only screen and (max-width: 350px) {
+    nav li a {
+	height:1.7em;
+        font-size: 0.8em;
+    }
+
+    header {
+        font-size: 0.5em;
+    }
+
+}
+
